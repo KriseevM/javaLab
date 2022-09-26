@@ -14,7 +14,7 @@ import ru.kriseev.lab3.lab3_1.AnalogClock;
 public class Main {
 
     public static void main(String[] args) {
-        Random rnd = new Random(100);
+        Random rnd = new Random();
         AnalogClock clock1 = new AnalogClock(rnd.nextInt(), rnd.nextInt(), 20.0, "brand 1");
         System.out.println(clock1);
         System.out.println("Adjusting time by 1h and 10 minutes...");
