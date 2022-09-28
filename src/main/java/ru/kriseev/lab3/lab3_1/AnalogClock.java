@@ -45,6 +45,7 @@ public class AnalogClock {
         return this.brandName;
     }
     
+    @Override
     public String toString()
     {
         return String.format("%s clock costs %f USD and shows time %d:%d",
