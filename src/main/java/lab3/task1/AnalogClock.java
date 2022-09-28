@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ru.kriseev.lab3.lab3_1;
+package lab3.task1;
 
 /**
  *
@@ -48,7 +48,7 @@ public class AnalogClock {
     @Override
     public String toString()
     {
-        return String.format("%s clock costs %f USD and shows time %d:%d",
+        return String.format("%s clock costs %.2f USD and shows time %02d:%02d",
                 this.brandName, this.price, 
                 this.hourHandAngle, this.minuteHandAngle);
     }
