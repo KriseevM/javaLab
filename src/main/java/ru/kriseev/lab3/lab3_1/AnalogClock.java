@@ -26,8 +26,12 @@ public class AnalogClock {
         this.price = Math.abs(price);
         this.brandName = brandName;
     }
-    public void adjust(int hours, int minutes)
+    public void adjust(int hours, int minutes) throws IllegalArgumentException
     {
+        if(hours < 0 || minutes < 0)
+        {
+            throw new IllegalArgumentException("You can't adjust time by negative value");
+        }
         this.minuteHandAngle = this.minuteHandAngle + minutes;
         this.hourHandAngle = (this.hourHandAngle + hours + this.minuteHandAngle / 60) % 12;
         this.minuteHandAngle %= 60;

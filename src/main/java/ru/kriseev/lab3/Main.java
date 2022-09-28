@@ -18,7 +18,7 @@ public class Main {
         AnalogClock clock1 = new AnalogClock(rnd.nextInt(), rnd.nextInt(), 20.0, "brand 1");
         System.out.println(clock1);
         System.out.println("Adjusting time by 1h and 10 minutes...");
-        clock1.adjust(1, 10);
+        clock1.adjust(-1, 10);
         System.out.println(clock1);
         System.out.println("Adjusting time by 10h and 50 minutes...");
         clock1.adjust(10, 50);
