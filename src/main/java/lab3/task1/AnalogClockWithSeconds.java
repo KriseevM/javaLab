@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package lab3.task1;
 
-/**
- *
- * @author k17
- */
-public class AnalogClockWithSeconds extends AnalogClock implements IClockWithSeconds {
+public class AnalogClockWithSeconds extends AnalogClock {
 
     protected int seconds;
+    
     public AnalogClockWithSeconds(int initialHours, int initialMinutes, 
             int initialSeconds, double price, String brandName)
     {
@@ -18,7 +11,18 @@ public class AnalogClockWithSeconds extends AnalogClock implements IClockWithSec
         this.seconds = Math.abs(initialSeconds) % 60;
     }
     @Override
-    public void addSeconds(int seconds) throws IllegalArgumentException
+    public void addTime(Unit unit, int span)
+    {
+    	switch(unit)
+    	{
+    	case SECOND:
+    		addSeconds(span);
+    		break;
+    	default:
+    		super.addTime(unit, span);
+    	}
+    }
+    protected void addSeconds(int seconds) throws IllegalArgumentException
     {
         if(seconds < 0)
         {
@@ -28,7 +32,6 @@ public class AnalogClockWithSeconds extends AnalogClock implements IClockWithSec
         this.addMinutes(this.seconds / 60);
         this.seconds %= 60;
     }
-    
     @Override
     public String toString()
     {
