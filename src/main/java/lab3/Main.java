@@ -4,7 +4,9 @@ import java.util.Random;
 import lab3.task1.AnalogClock;
 import lab3.task1.AnalogClockWithSeconds;
 import lab3.task1.IClock;
+import lab3.task1.NegativeTimeAdjustmentException;
 import lab3.task1.Unit;
+import lab3.task1.UnsupportedUnitTypeException;
 
 public class Main {
 
@@ -12,10 +14,17 @@ public class Main {
         Random rnd = new Random();
         IClock clock1 = new AnalogClock(rnd.nextInt(), rnd.nextInt(), 20.0, "brand 1");
         IClock clock2 = new AnalogClockWithSeconds(rnd.nextInt(), rnd.nextInt(), rnd.nextInt(), 90.0, "brand 2");
-        testClock(clock1);
-        testClockWithSeconds(clock2);
+        
+       try { 
+    	   	testClock(clock1);
+    	   	testClockWithSeconds(clock2);
+      } catch(UnsupportedUnitTypeException | NegativeTimeAdjustmentException e)
+     {
+    	  System.err.println(String.format("Tests finished with exception: %s", e));
+     }
+       
     }
-    public static void testClockWithSeconds(IClock clock) {
+    public static void testClockWithSeconds(IClock clock) throws UnsupportedUnitTypeException, NegativeTimeAdjustmentException {
         testClock(clock);
         System.out.println("Adjusting time by 15 seconds...");
         clock.addTime(Unit.SECOND, 15);
@@ -30,7 +39,7 @@ public class Main {
         clock.addTime(Unit.SECOND, 3900);
         System.out.println(clock);
     }
-    public static void testClock(IClock clock) {
+    public static void testClock(IClock clock) throws UnsupportedUnitTypeException, NegativeTimeAdjustmentException {
         System.out.println("\n ----- Starting clock test ----- \n");
         System.out.println(clock);
         System.out.println("Adjusting time by 1h and 10 minutes...");

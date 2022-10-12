@@ -22,7 +22,7 @@ public class AnalogClock extends Clock {
         return String.format("%s clock costs %.2f USD and shows time %02d:%02d", this.brandName, this.price,
                 this.hours == 0 ? 12 : this.hours, this.minutes);
     }
-    public void addTime(Unit unit, int span)
+    public void addTime(Unit unit, int span) throws UnsupportedUnitTypeException, NegativeTimeAdjustmentException
     {
     	switch(unit)
     	{
@@ -33,23 +33,23 @@ public class AnalogClock extends Clock {
     		addMinutes(span);
     		break;
     	default:
-    		throw new IllegalArgumentException("No such hand on this clock");
+    		throw new UnsupportedUnitTypeException(unit);
     	}
     }
-    protected void addMinutes(int minutes) throws IllegalArgumentException {
+    protected void addMinutes(int minutes) throws NegativeTimeAdjustmentException {
         if(minutes < 0)
         {
-            throw new IllegalArgumentException("You can't adjust time by negative value");
+            throw new NegativeTimeAdjustmentException(minutes);
         }
         this.minutes = this.minutes + minutes;
         this.addHours(this.minutes / 60);
         this.minutes %= 60;
     }
 
-    protected void addHours(int hours) throws IllegalArgumentException{
+    protected void addHours(int hours) throws NegativeTimeAdjustmentException {
         if(hours < 0)
         {
-            throw new IllegalArgumentException("You can't adjust time by negative value");
+            throw new NegativeTimeAdjustmentException(hours);
         }
         this.hours += hours;
         this.hours %= 12;

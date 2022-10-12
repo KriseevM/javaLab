@@ -11,7 +11,7 @@ public class AnalogClockWithSeconds extends AnalogClock {
         this.seconds = Math.abs(initialSeconds) % 60;
     }
     @Override
-    public void addTime(Unit unit, int span)
+    public void addTime(Unit unit, int span) throws UnsupportedUnitTypeException, NegativeTimeAdjustmentException
     {
     	switch(unit)
     	{
@@ -22,11 +22,11 @@ public class AnalogClockWithSeconds extends AnalogClock {
     		super.addTime(unit, span);
     	}
     }
-    protected void addSeconds(int seconds) throws IllegalArgumentException
+    protected void addSeconds(int seconds) throws NegativeTimeAdjustmentException
     {
         if(seconds < 0)
         {
-            throw new IllegalArgumentException("You can't adjust time by negative value");
+            throw new NegativeTimeAdjustmentException(seconds);
         }
         this.seconds += seconds;
         this.addMinutes(this.seconds / 60);
