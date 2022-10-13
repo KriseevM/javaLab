@@ -14,7 +14,7 @@ public class ClockStore {
 		brandNames = new TreeMap<>();
 	}
 
-	public void AddTimeOnAllClocks(Unit unit, int time) throws NegativeTimeAdjustmentException {
+	public void addTimeOnAllClocks(Unit unit, int time) throws NegativeTimeAdjustmentException {
 		for (IClock clock : clocks) {
 			try {
 				clock.addTime(unit, time);
