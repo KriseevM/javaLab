@@ -42,26 +42,16 @@ public class ClockStore {
 	}
 
 	public String getMostCommonBrandName() {
-		Integer maxCount = 0;
-		String maxBrandName = "";
-		for (String key : brandNames.keySet()) {
-			Integer count = brandNames.get(key);
-			if (count > maxCount) {
-				maxCount = count;
-				maxBrandName = key;
-			}
-		}
-		return maxBrandName;
+		/*
+		 * Integer maxCount = 0; String maxBrandName = ""; for (String key :
+		 * brandNames.keySet()) { Integer count = brandNames.get(key); if (count >
+		 * maxCount) { maxCount = count; maxBrandName = key; } } return maxBrandName;
+		 */
+		return brandNames.entrySet().stream().max((e1, e2) -> Integer.compare(e1.getValue(), e2.getValue())).get()
+				.getKey();
 	}
 
 	public IClock getMostExpensiveClock() {
-		return Collections.max(clocks, new Comparator<IClock>() {
-
-			@Override
-			public int compare(IClock o1, IClock o2) {
-				return Double.compare(o1.getPrice(), o2.getPrice());
-			}
-
-		});
+		return Collections.max(clocks, (o1, o2) -> Double.compare(o1.getPrice(), o2.getPrice()));
 	}
 }
