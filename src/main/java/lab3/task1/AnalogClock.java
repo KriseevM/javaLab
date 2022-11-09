@@ -50,4 +50,10 @@ public class AnalogClock extends Clock {
 		this.hours += hours;
 		this.hours %= 12;
 	}
+
+	@Override
+	public String getFormattedTime() {
+		// TODO Auto-generated method stub
+		return String.format("%02d:%02d", hours, minutes);
+	}
 }

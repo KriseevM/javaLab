@@ -6,4 +6,7 @@ public interface IClock {
 	public double getPrice();
 
 	public void addTime(Unit unit, int span) throws UnsupportedUnitTypeException, NegativeTimeAdjustmentException;
+	
+	public String getFormattedTime();
+	
 }
