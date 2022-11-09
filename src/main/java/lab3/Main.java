@@ -39,16 +39,16 @@ public class Main {
 			throws UnsupportedUnitTypeException, NegativeTimeAdjustmentException {
 		testClock(clock);
 		System.out.println("Adjusting time by 15 seconds...");
-		clock.addTime(Unit.SECOND, 15);
+		clock.addTime(Unit.Seconds, 15);
 		System.out.println(clock);
 		System.out.println("Adjusting time by 45 seconds...");
-		clock.addTime(Unit.SECOND, 45);
+		clock.addTime(Unit.Seconds, 45);
 		System.out.println(clock);
 		System.out.println("Adjusting time by 95 seconds...");
-		clock.addTime(Unit.SECOND, 95);
+		clock.addTime(Unit.Seconds, 95);
 		System.out.println(clock);
 		System.out.println("Adjusting time by 3900 seconds...");
-		clock.addTime(Unit.SECOND, 3900);
+		clock.addTime(Unit.Seconds, 3900);
 		System.out.println(clock);
 	}
 
@@ -56,18 +56,18 @@ public class Main {
 		System.out.println("\n ----- Starting clock test ----- \n");
 		System.out.println(clock);
 		System.out.println("Adjusting time by 1h and 10 minutes...");
-		clock.addTime(Unit.HOUR, 1);
-		clock.addTime(Unit.MINUTE, 10);
+		clock.addTime(Unit.Hours, 1);
+		clock.addTime(Unit.Minutes, 10);
 		System.out.println(clock);
 		System.out.println("Adjusting time by 10h and 50 minutes...");
-		clock.addTime(Unit.HOUR, 10);
-		clock.addTime(Unit.MINUTE, 50);
+		clock.addTime(Unit.Hours, 10);
+		clock.addTime(Unit.Minutes, 50);
 		System.out.println(clock);
 		System.out.println("Adjusting time by 600 minutes");
-		clock.addTime(Unit.MINUTE, 600);
+		clock.addTime(Unit.Minutes, 600);
 		System.out.println(clock);
 		System.out.println("Adjusting time by 25 hours");
-		clock.addTime(Unit.HOUR, 25);
+		clock.addTime(Unit.Hours, 25);
 		System.out.println(clock);
 	}
 

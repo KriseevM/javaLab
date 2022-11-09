@@ -1,8 +1,8 @@
 package lab3.task1;
 
 public class AnalogClock extends Clock {
-	private int minutes = 0;
-	private int hours = 0; // in 1/12s of a full circle. 0 = midnight
+	protected int minutes = 0;
+	protected int hours = 0; // in 1/12s of a full circle. 0 = midnight
 
 	public AnalogClock(double price, String brandName) {
 		this(0, 0, price, brandName);
@@ -23,10 +23,10 @@ public class AnalogClock extends Clock {
 
 	public void addTime(Unit unit, int span) throws UnsupportedUnitTypeException, NegativeTimeAdjustmentException {
 		switch (unit) {
-		case HOUR:
+		case Hours:
 			addHours(span);
 			break;
-		case MINUTE:
+		case Minutes:
 			addMinutes(span);
 			break;
 		default:

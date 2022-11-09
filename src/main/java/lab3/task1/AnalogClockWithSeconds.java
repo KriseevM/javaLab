@@ -18,7 +18,7 @@ public class AnalogClockWithSeconds extends AnalogClock {
 	@Override
 	public void addTime(Unit unit, int span) throws UnsupportedUnitTypeException, NegativeTimeAdjustmentException {
 		switch (unit) {
-		case SECOND:
+		case Seconds:
 			addSeconds(span);
 			break;
 		default:
