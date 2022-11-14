@@ -12,7 +12,7 @@ import java.util.Set;
 import static org.reflections.scanners.Scanners.SubTypes;
 
 public class addClockFrameController {
-    public ChoiceBox<String> clockTypesDropdown;
+    public ChoiceBox<Class<?>> clockTypesDropdown;
 
     public void addTimeClick(ActionEvent actionEvent) {
     }
@@ -23,7 +23,7 @@ public class addClockFrameController {
     public void initialize()
     {
         Reflections ref = new Reflections("lab3.task1.logic");
-        Set<String> clockTypes =  ref.get(SubTypes.of(IClock.class).asString());
+        Set<Class<?>> clockTypes =  ref.get(SubTypes.of(IClock.class).asClass());
         clockTypesDropdown.setItems(FXCollections.observableArrayList(clockTypes));
 
     }
