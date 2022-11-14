@@ -5,13 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import lab3.task1.IClock;
-import lab3.task1.NegativeTimeAdjustmentException;
-import lab3.task1.Unit;
-import lab3.task1.UnsupportedUnitTypeException;
+import lab3.task1.logic.IClock;
+import lab3.task1.logic.Unit;
 
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 public class addTimeFrameController {
     public VBox unitVBox;

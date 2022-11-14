@@ -1,4 +1,4 @@
-package lab3.task1;
+package lab3.task1.logic;
 
 public abstract class Clock implements IClock {
 

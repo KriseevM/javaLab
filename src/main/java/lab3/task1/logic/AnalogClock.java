@@ -1,4 +1,4 @@
-package lab3.task1;
+package lab3.task1.logic;
 
 public class AnalogClock extends Clock {
 	protected int minutes = 0;

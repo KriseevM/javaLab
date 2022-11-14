@@ -1,13 +1,13 @@
 package lab3;
 
 import java.util.Random;
-import lab3.task1.AnalogClock;
-import lab3.task1.AnalogClockWithSeconds;
-import lab3.task1.ClockStore;
-import lab3.task1.IClock;
-import lab3.task1.NegativeTimeAdjustmentException;
-import lab3.task1.Unit;
-import lab3.task1.UnsupportedUnitTypeException;
+import lab3.task1.logic.AnalogClock;
+import lab3.task1.logic.AnalogClockWithSeconds;
+import lab3.task1.logic.ClockStore;
+import lab3.task1.logic.IClock;
+import lab3.task1.logic.NegativeTimeAdjustmentException;
+import lab3.task1.logic.Unit;
+import lab3.task1.logic.UnsupportedUnitTypeException;
 
 public class Main {
 

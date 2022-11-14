@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import lab3.task1.Unit;
+import lab3.task1.logic.Unit;
 
 import java.util.function.UnaryOperator;
 

@@ -1,4 +1,4 @@
-package lab3.task1;
+package lab3.task1.logic;
 
 public class NegativeTimeAdjustmentException extends Exception {
 	private String message;

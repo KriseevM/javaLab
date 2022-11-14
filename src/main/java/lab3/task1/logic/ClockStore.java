@@ -1,11 +1,14 @@
-package lab3.task1;
+package lab3.task1.logic;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.TreeMap;
 
 public class ClockStore {
+	public ArrayList<IClock> getClocks() {
+		return clocks;
+	}
+
 	private ArrayList<IClock> clocks;
 	private TreeMap<String, Integer> brandNames;
 
