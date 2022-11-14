@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,31 +16,32 @@
       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="200.0" />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
    </rowConstraints>
    <children>
-      <Label text="Brand">
+      <Label text="Brand" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Price" GridPane.rowIndex="1">
+      <Label text="Price" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Time" GridPane.rowIndex="2">
+      <Label text="Time" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <TextField GridPane.columnIndex="1" />
       <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <ButtonBar buttonMinWidth="30.0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <ButtonBar buttonMinWidth="30.0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
@@ -48,5 +50,15 @@
             <Button mnemonicParsing="false" onAction="#deleteClick" text="Delete" />
          </buttons>
       </ButtonBar>
+      <ChoiceBox fx:id="clockTypesDropdown" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+      </ChoiceBox>
+      <Label text="Type">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+         </GridPane.margin>
+      </Label>
    </children>
 </GridPane>
