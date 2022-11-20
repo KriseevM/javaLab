@@ -2,6 +2,10 @@ package lab3.task1.logic;
 
 public class AnalogClockWithSeconds extends AnalogClock {
 
+	public AnalogClockWithSeconds(double price, String brandName) {
+		this(0, 0, 0, price, brandName);
+	}
+
 	@Override
 	public String getFormattedTime() {
 		return String.format("%s:%02d", super.getFormattedTime(), this.seconds);
@@ -14,7 +18,10 @@ public class AnalogClockWithSeconds extends AnalogClock {
 		super(initialHours, initialMinutes, price, brandName);
 		this.seconds = Math.abs(initialSeconds) % 60;
 	}
-
+	public AnalogClockWithSeconds()
+	{
+		this( 0.0, "");
+	}
 	@Override
 	public void addTime(Unit unit, int span) throws UnsupportedUnitTypeException, NegativeTimeAdjustmentException {
 		switch (unit) {

@@ -3,6 +3,7 @@ package lab3.task1.ui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lab3.task1.logic.IClock;
@@ -37,11 +38,12 @@ public class addTimeFrameController {
                     clock.addTime(u, 0);
                     clockUnitAddPaneController controller = new clockUnitAddPaneController(u);
                     units.put(u, controller);
-                    FXMLLoader loader = new FXMLLoader(this.getClass().getResource("clockUnitAddPane"));
+                    FXMLLoader loader = new FXMLLoader(this.getClass().getResource("clockUnitAddPane.fxml"));
                     loader.setController(controller);
-                    unitVBox.getChildren().add(loader.load());
-                } catch (Exception ignore) {
+                    GridPane g = loader.load();
+                    unitVBox.getChildren().add(g);
                 }
+                catch (Exception ignore) {}
             }
         }
     }
@@ -64,7 +66,8 @@ public class addTimeFrameController {
         {
             try {
                 clock.addTime(u, units.get(u).getValue());
-            } catch (Exception ignore) {}
+            } catch (Exception ignore) {
+            }
         }
         ((Stage)unitVBox.getScene().getWindow()).close();
     }

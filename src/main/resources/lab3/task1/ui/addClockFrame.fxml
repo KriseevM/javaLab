@@ -32,16 +32,16 @@
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="brandText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="priceText" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="timeText" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <ButtonBar buttonMinWidth="30.0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
          <buttons>
             <Button mnemonicParsing="false" onAction="#addTimeClick" text="Add time" />
-            <Button mnemonicParsing="false" onAction="#deleteClick" text="Add to Store" />
+            <Button mnemonicParsing="false" onAction="#addToStoreClick" text="Add to Store" />
          </buttons>
       </ButtonBar>
       <ChoiceBox fx:id="clockTypesDropdown" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS">

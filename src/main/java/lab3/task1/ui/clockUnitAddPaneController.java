@@ -1,5 +1,7 @@
 package lab3.task1.ui;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -44,6 +46,12 @@ public class clockUnitAddPaneController {
             return null;
         };
         valueField.setTextFormatter(new TextFormatter<>(integerFilter));
+        valueField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                value = Integer.parseInt(t1);
+            }
+        });
         this.valueField.setText(Integer.toString(value));
     }
 

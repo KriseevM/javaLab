@@ -15,6 +15,10 @@ public class AnalogClock extends Clock {
 		this.minutes = Math.abs(initialHours) % 60;
 	}
 
+	public AnalogClock() {
+		this(0.0, "");
+	}
+
 	@Override
 	public String toString() {
 		return String.format("%s clock costs %.2f USD and shows time %02d:%02d", this.brandName, this.price,

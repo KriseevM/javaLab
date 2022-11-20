@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="300.0" text="clock" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab3.task1.ui.clockPaneController">
+<TitledPane fx:id="parentPane" animated="false" text="clock" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <content>
       <GridPane>
         <columnConstraints>
@@ -33,9 +33,9 @@
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField editable="false" GridPane.columnIndex="1" />
-            <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="brandNameText" editable="false" GridPane.columnIndex="1" />
+            <TextField fx:id="priceText" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="timeText" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ButtonBar buttonMinWidth="30.0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets />
