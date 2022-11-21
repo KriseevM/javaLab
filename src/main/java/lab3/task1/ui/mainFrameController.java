@@ -7,7 +7,6 @@ import javafx.scene.control.Accordion;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lab3.task1.logic.ClockStore;
 import lab3.task1.logic.IClock;
@@ -46,8 +45,8 @@ public class mainFrameController {
                 TitledPane p = loader.load();
                 clocksAccordion.getPanes().add(p);
             }
-            catch(Exception ignored){
-                throw new RuntimeException(ignored);
+            catch(Exception e){
+                throw new RuntimeException(e);
             }
         }
         commonClockTB.setText(store.getMostCommonBrandName());

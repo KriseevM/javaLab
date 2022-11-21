@@ -1,6 +1,5 @@
 package lab3.task1.logic;
 
-import javafx.fxml.FXML;
 
 import java.util.ArrayList;
 import java.util.Collections;

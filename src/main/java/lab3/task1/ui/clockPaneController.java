@@ -9,17 +9,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.stage.Stage;
-import lab3.task1.logic.Clock;
 import lab3.task1.logic.IClock;
-import lab3.task1.util.DoubleTextFilter;
 
 import java.util.ArrayList;
 
 public class clockPaneController {
     public TitledPane parentPane;
     public ArrayList<ClockDeletedListener> deletedListeners = new ArrayList<>();
-    @FXML
-    private TextField brandNameText;
+    public TextField brandNameText;
 
     @FXML
     private Button deleteButton;
@@ -27,8 +24,7 @@ public class clockPaneController {
     @FXML
     private TextField priceText;
 
-    @FXML
-    private TextField timeText;
+    public TextField timeText;
 
     private IClock clock;
 

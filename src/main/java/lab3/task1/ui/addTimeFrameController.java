@@ -36,14 +36,18 @@ public class addTimeFrameController {
                 try {
                     // add 0 time so that if clock can't use specific unit u it will throw exception
                     clock.addTime(u, 0);
-                    clockUnitAddPaneController controller = new clockUnitAddPaneController(u);
-                    units.put(u, controller);
-                    FXMLLoader loader = new FXMLLoader(this.getClass().getResource("clockUnitAddPane.fxml"));
-                    loader.setController(controller);
-                    GridPane g = loader.load();
-                    unitVBox.getChildren().add(g);
                 }
                 catch (Exception ignore) {}
+                clockUnitAddPaneController controller = new clockUnitAddPaneController(u);
+                units.put(u, controller);
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("clockUnitAddPane.fxml"));
+                loader.setController(controller);
+                try {
+                    g = loader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                unitVBox.getChildren().add(g);
             }
         }
     }
