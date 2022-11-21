@@ -115,4 +115,8 @@ public class addClockFrameController {
         priceText.setText(Double.toString(clock.getPrice()));
         brandText.setText(clock.getBrandName());
     }
+
+    public void cancelClick(ActionEvent actionEvent) {
+        ((Stage)timeText.getScene().getWindow()).close();
+    }
 }

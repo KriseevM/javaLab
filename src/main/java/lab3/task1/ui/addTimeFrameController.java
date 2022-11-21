@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import lab3.task1.logic.IClock;
 import lab3.task1.logic.Unit;
 
+import java.io.IOException;
 import java.util.TreeMap;
 
 public class addTimeFrameController {
@@ -43,11 +44,11 @@ public class addTimeFrameController {
                 FXMLLoader loader = new FXMLLoader(this.getClass().getResource("clockUnitAddPane.fxml"));
                 loader.setController(controller);
                 try {
-                    g = loader.load();
+                    GridPane g = loader.load();
+                    unitVBox.getChildren().add(g);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                unitVBox.getChildren().add(g);
             }
         }
     }

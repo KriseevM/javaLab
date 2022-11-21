@@ -5,24 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f9b1b33-21b5-4588-8be8-1e6b5190244c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/ClockAddedListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/util/DoubleTextFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/AnalogClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/AnalogClock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/AnalogClockWithSeconds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/AnalogClockWithSeconds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/Clock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/ClockStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/ClockStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/IClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/logic/IClock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/ClockDeletedListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/ClockDeletedListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/addClockFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/addClockFrameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/addTimeFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/addTimeFrameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/clockPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/clockPaneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/clockUnitAddPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/clockUnitAddPaneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/mainFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/mainFrameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/addClockFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/addClockFrame.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/addTimeFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/addTimeFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/clockPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/clockPane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/clockUnitAddPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/clockUnitAddPane.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/mainFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/mainFrame.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -7,6 +7,7 @@ import javafx.scene.control.Accordion;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import lab3.task1.logic.ClockStore;
 import lab3.task1.logic.IClock;
@@ -14,11 +15,11 @@ import lab3.task1.logic.IClock;
 import java.io.IOException;
 
 public class mainFrameController {
-
-    public TextField expensiveClockTB;
+    
     public TextField commonClockTB;
     public ListView<String> brandsLB;
     public Accordion clocksAccordion;
+    public GridPane root;
     private ClockStore store;
 
     public mainFrameController()
@@ -59,13 +60,16 @@ public class mainFrameController {
         try {
             Stage s = new Stage();
             s.setScene(new Scene(loader.load()));
+            s.setTitle("Adding clock");
             ((addClockFrameController)loader.getController()).addClockAddedListener(new ClockAddedListener() {
                 @Override
                 public void ClockAdded(IClock clock) {
                     store.add(clock);
                 }
             });
+            root.getScene().getWindow().hide();
             s.showAndWait();
+            ((Stage) root.getScene().getWindow()).show();
             redraw();
         } catch (IOException e) {
             throw new RuntimeException(e);

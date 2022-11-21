@@ -18,11 +18,7 @@ public class clockPaneController {
     public ArrayList<ClockDeletedListener> deletedListeners = new ArrayList<>();
     public TextField brandNameText;
 
-    @FXML
-    private Button deleteButton;
-
-    @FXML
-    private TextField priceText;
+    public TextField priceText;
 
     public TextField timeText;
 

@@ -16,6 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         Scene mainScene = new Scene(FXMLLoader.load(this.getClass().getResource("mainFrame.fxml")));
+        primaryStage.setTitle("Clock Store");
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }
