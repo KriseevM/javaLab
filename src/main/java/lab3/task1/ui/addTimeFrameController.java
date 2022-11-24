@@ -7,7 +7,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lab3.task1.logic.IClock;
+import lab3.task1.logic.NegativeTimeAdjustmentException;
 import lab3.task1.logic.Unit;
+import lab3.task1.logic.UnsupportedUnitTypeException;
 
 import java.io.IOException;
 import java.util.TreeMap;
@@ -37,18 +39,17 @@ public class addTimeFrameController {
                 try {
                     // add 0 time so that if clock can't use specific unit u it will throw exception
                     clock.addTime(u, 0);
-                }
-                catch (Exception ignore) {}
-                clockUnitAddPaneController controller = new clockUnitAddPaneController(u);
-                units.put(u, controller);
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("clockUnitAddPane.fxml"));
-                loader.setController(controller);
-                try {
+                    clockUnitAddPaneController controller = new clockUnitAddPaneController(u);
+                    units.put(u, controller);
+                    FXMLLoader loader = new FXMLLoader(this.getClass().getResource("clockUnitAddPane.fxml"));
+                    loader.setController(controller);
                     GridPane g = loader.load();
                     unitVBox.getChildren().add(g);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
+                } catch (UnsupportedUnitTypeException | NegativeTimeAdjustmentException ignored) {
                 }
+
             }
         }
     }

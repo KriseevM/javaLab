@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4f9b1b33-21b5-4588-8be8-1e6b5190244c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/addClockFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/addClockFrameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/addTimeFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/addTimeFrameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/clockPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/clockPaneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/mainFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/mainFrameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/addClockFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/addClockFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/addTimeFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/addTimeFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/mainFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lab3/task1/ui/mainFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/clockUnitAddPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab3/task1/ui/clockUnitAddPaneController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +134,17 @@
       <updated>1668454729850</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

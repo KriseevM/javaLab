@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import lab3.task1.logic.Unit;
 
+import java.util.Objects;
 import java.util.function.UnaryOperator;
 
 public class clockUnitAddPaneController {
@@ -38,18 +39,22 @@ public class clockUnitAddPaneController {
     public void initialize()
     {
         unitNameLabel.setText(unit.toString());
-        UnaryOperator<TextFormatter.Change> integerFilter = change -> {
-            String input = change.getText();
-            if (input.matches("[0-9]*")) {
-                return change;
-            }
-            return null;
-        };
-        valueField.setTextFormatter(new TextFormatter<>(integerFilter));
         valueField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                value = Integer.parseInt(t1);
+                try {
+                    int val = Integer.parseInt(t1);
+                    if (s.equals("0")) {
+                        valueField.setText(t1.substring(1));
+                        setValue(val);
+                    }
+                } catch (Exception ignored) {
+                    if (Objects.equals(t1, "")) {
+                        s = "0";
+                    }
+                    valueField.setText(s);
+                    setValue(Integer.parseInt(s));
+                }
             }
         });
         this.valueField.setText(Integer.toString(value));
