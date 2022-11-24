@@ -1,5 +1,7 @@
 package lab3.task1.ui;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,19 +10,23 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lab3.task1.logic.ClockStore;
 import lab3.task1.logic.IClock;
+import lab3.task1.util.InterfaceAdapter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class mainFrameController {
-    
     public TextField commonClockTB;
     public ListView<String> brandsLB;
     public Accordion clocksAccordion;
     public GridPane root;
     private ClockStore store;
+    final private FileChooser fileChooser = new FileChooser();
+
 
     public mainFrameController()
     {
@@ -73,6 +79,43 @@ public class mainFrameController {
             redraw();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void loadJsonClick(ActionEvent actionEvent) {
+        File file = fileChooser.showOpenDialog((Stage) root.getScene().getWindow());
+        if(file != null)
+        {
+            Gson g = new GsonBuilder().
+                    registerTypeAdapter(IClock.class, new InterfaceAdapter<IClock>())
+                    .create();
+            try {
+                try (FileInputStream f = new FileInputStream(file)) {
+                    String s = new String(f.readAllBytes(), StandardCharsets.UTF_8);
+                    ClockStore store = g.fromJson(s, ClockStore.class);
+                    this.store = store;
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        redraw();
+    }
+
+    public void saveJsonClick(ActionEvent actionEvent) {
+        File file = fileChooser.showSaveDialog((Stage) root.getScene().getWindow());
+        if(file != null)
+        {
+            Gson g = new GsonBuilder().
+                    registerTypeAdapter(IClock.class, new InterfaceAdapter<IClock>())
+                    .create();
+            try {
+                try (FileOutputStream f = new FileOutputStream(file)) {
+                    f.write(g.toJson(store).getBytes(StandardCharsets.UTF_8));
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

@@ -1,6 +1,9 @@
 package lab3;
 
 import java.util.Random;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lab3.task1.logic.AnalogClock;
 import lab3.task1.logic.AnalogClockWithSeconds;
 import lab3.task1.logic.ClockStore;
@@ -8,6 +11,7 @@ import lab3.task1.logic.IClock;
 import lab3.task1.logic.NegativeTimeAdjustmentException;
 import lab3.task1.logic.Unit;
 import lab3.task1.logic.UnsupportedUnitTypeException;
+import lab3.task1.util.InterfaceAdapter;
 
 public class Main {
 
@@ -32,6 +36,10 @@ public class Main {
 		}
 		System.out.println(store.getMostCommonBrandName());
 		System.out.println(store.getMostExpensiveClock());
+		Gson g = new GsonBuilder()
+				.registerTypeAdapter(IClock.class, new InterfaceAdapter<IClock>())
+				.setPrettyPrinting().create();
+		System.out.println(g.toJson(g.fromJson(g.toJson(store), ClockStore.class)));
 
 	}
 
