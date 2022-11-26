@@ -3,6 +3,7 @@ package lab3.task1.ui;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
@@ -18,6 +19,7 @@ import lab3.task1.util.InterfaceAdapter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 public class mainFrameController {
     public TextField commonClockTB;
@@ -30,7 +32,13 @@ public class mainFrameController {
 
     public mainFrameController()
     {
-        store = new ClockStore();
+        store = new ClockStore(true);
+    }
+
+    @FXML
+    public void initialize()
+    {
+        redraw();
     }
 
     private void redraw()
@@ -92,14 +100,20 @@ public class mainFrameController {
             try {
                 try (FileInputStream f = new FileInputStream(file)) {
                     String s = new String(f.readAllBytes(), StandardCharsets.UTF_8);
-                    ClockStore store = g.fromJson(s, ClockStore.class);
-                    this.store = store;
+                    store.clear();
+                    ClockStore newClocks =  g.fromJson(s, ClockStore.class);
+                    for(IClock c : newClocks.getClocks())
+                    {
+                        store.add(c);
+                    }
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            finally {
+                redraw();
+            }
         }
-        redraw();
     }
 
     public void saveJsonClick(ActionEvent actionEvent) {
@@ -107,8 +121,9 @@ public class mainFrameController {
         if(file != null)
         {
             Gson g = new GsonBuilder().
-                    registerTypeAdapter(IClock.class, new InterfaceAdapter<IClock>())
-                    .create();
+                    registerTypeAdapter(IClock.class, new InterfaceAdapter<IClock>()).
+                    excludeFieldsWithoutExposeAnnotation().
+                    create();
             try {
                 try (FileOutputStream f = new FileOutputStream(file)) {
                     f.write(g.toJson(store).getBytes(StandardCharsets.UTF_8));

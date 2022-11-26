@@ -1,5 +1,10 @@
 package lab3.task1.logic;
 
+import com.google.gson.annotations.Expose;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+@Entity
 public class AnalogClockWithSeconds extends AnalogClock {
 
 	public AnalogClockWithSeconds(double price, String brandName) {
@@ -10,7 +15,8 @@ public class AnalogClockWithSeconds extends AnalogClock {
 	public String getFormattedTime() {
 		return String.format("%s:%02d", super.getFormattedTime(), this.seconds);
 	}
-
+	@Expose
+	@Column(name = "seconds")
 	protected int seconds;
 
 	public AnalogClockWithSeconds(int initialHours, int initialMinutes, int initialSeconds, double price,

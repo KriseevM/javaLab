@@ -1,5 +1,9 @@
 package lab3.task1.logic;
 
+import jakarta.persistence.*;
+
+
+@MappedSuperclass
 public interface IClock {
 	public String getBrandName();
 	public void setBrandName(String name);

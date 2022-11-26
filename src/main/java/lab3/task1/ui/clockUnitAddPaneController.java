@@ -5,11 +5,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import lab3.task1.logic.Unit;
 
 import java.util.Objects;
-import java.util.function.UnaryOperator;
 
 public class clockUnitAddPaneController {
     public TextField valueField;
@@ -21,9 +19,13 @@ public class clockUnitAddPaneController {
         return value;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setValueAndRedraw(int value) {
+        setValue(value);
         redraw();
+    }
+
+    private void setValue(int value) {
+        this.value = value;
     }
 
     private int value = 0;
