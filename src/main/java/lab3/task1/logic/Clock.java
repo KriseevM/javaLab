@@ -3,9 +3,20 @@ package lab3.task1.logic;
 import com.google.gson.annotations.Expose;
 import jakarta.persistence.*;
 
+import java.io.ObjectStreamField;
+import java.io.Serial;
+import java.io.Serializable;
+
 @Entity
 @Table(name="clocks")
 public abstract class Clock implements IClock {
+
+	@Serial
+	private static final ObjectStreamField[] serialPersistentFields = {
+			new ObjectStreamField("brandName", String.class),
+			new ObjectStreamField("price", double.class)
+	};
+
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	protected int ID;

@@ -19,7 +19,6 @@ import lab3.task1.util.InterfaceAdapter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 public class mainFrameController {
     public TextField commonClockTB;
@@ -90,47 +89,50 @@ public class mainFrameController {
         }
     }
 
-    public void loadJsonClick(ActionEvent actionEvent) {
-        File file = fileChooser.showOpenDialog((Stage) root.getScene().getWindow());
-        if(file != null)
+    public void loadButtonClick(ActionEvent actionEvent) {
+        File file = new File("./clockStoreData.dat");
+        if(!file.isFile())
         {
-            Gson g = new GsonBuilder().
-                    registerTypeAdapter(IClock.class, new InterfaceAdapter<IClock>())
-                    .create();
             try {
-                try (FileInputStream f = new FileInputStream(file)) {
-                    String s = new String(f.readAllBytes(), StandardCharsets.UTF_8);
-                    store.clear();
-                    ClockStore newClocks =  g.fromJson(s, ClockStore.class);
-                    for(IClock c : newClocks.getClocks())
-                    {
-                        store.add(c);
-                    }
-                }
+                file.createNewFile();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            finally {
-                redraw();
-            }
+            return;
         }
+        try {
+            ObjectInputStream input = new ObjectInputStream(new FileInputStream(file));
+            try {
+                ClockStore tmp = (ClockStore) input.readObject();
+                store.clear();
+                for(IClock c : tmp.getClocks())
+                {
+                    store.add(c);
+                }
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        redraw();
     }
 
-    public void saveJsonClick(ActionEvent actionEvent) {
-        File file = fileChooser.showSaveDialog((Stage) root.getScene().getWindow());
-        if(file != null)
+    public void saveButtonClick(ActionEvent actionEvent) {
+        File file = new File("./clockStoreData.dat");
+        if(!file.isFile())
         {
-            Gson g = new GsonBuilder().
-                    registerTypeAdapter(IClock.class, new InterfaceAdapter<IClock>()).
-                    excludeFieldsWithoutExposeAnnotation().
-                    create();
             try {
-                try (FileOutputStream f = new FileOutputStream(file)) {
-                    f.write(g.toJson(store).getBytes(StandardCharsets.UTF_8));
-                }
+                file.createNewFile();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }
+        try {
+            ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(file));
+            output.writeObject(store);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

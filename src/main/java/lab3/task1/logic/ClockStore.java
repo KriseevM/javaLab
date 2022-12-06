@@ -10,17 +10,16 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.TreeMap;
 
-public class ClockStore {
+public class ClockStore implements Serializable {
 	public List<IClock> getClocks() {
 		return clocks;
 	}
-
-	@Expose
 	private ArrayList<IClock> clocks;
 	private TreeMap<String, Integer> brandNames;
 
