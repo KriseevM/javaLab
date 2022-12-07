@@ -48,8 +48,8 @@ public class clockUnitAddPaneController {
                     int val = Integer.parseInt(t1);
                     if (s.equals("0")) {
                         valueField.setText(t1.substring(1));
-                        setValue(val);
                     }
+                    setValue(val);
                 } catch (Exception ignored) {
                     if (Objects.equals(t1, "")) {
                         s = "0";
