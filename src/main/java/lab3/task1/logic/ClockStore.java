@@ -1,27 +1,57 @@
 package lab3.task1.logic;
 
 
+import com.google.gson.annotations.Expose;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
+import lab3.task1.util.HibernateSessionFactory;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.TreeMap;
 
 public class ClockStore {
-	public ArrayList<IClock> getClocks() {
+	public List<IClock> getClocks() {
 		return clocks;
 	}
 
+	@Expose
 	private ArrayList<IClock> clocks;
 	private TreeMap<String, Integer> brandNames;
 
-	public ClockStore() {
-		clocks = new ArrayList<>();
+	public ClockStore()
+	{
+		this(false);
+	}
+	public ClockStore(Boolean loadFromDb) {
+		this.clocks = new ArrayList<>();
 		brandNames = new TreeMap<>();
+		System.out.println("clock store ctor");
+		if(loadFromDb) {
+			try (Session s = HibernateSessionFactory.getSessionFactory().openSession()) {
+				Query<Clock> q;
+				CriteriaBuilder cb = s.getCriteriaBuilder();
+				CriteriaQuery<Clock> cr = cb.createQuery(Clock.class);
+				Root<Clock> root = cr.from(Clock.class);
+				cr.select(root);
+				q = s.createQuery(cr);
+				List<Clock> loaded = q.getResultList();
+				for (IClock clock : loaded) {
+					addToList(clock);
+				}
+			}
+		}
 	}
 	public void addTimeOnAllClocks(Unit unit, int time) throws NegativeTimeAdjustmentException {
 		for (IClock clock : clocks) {
 			try {
 				clock.addTime(unit, time);
-			} catch (UnsupportedUnitTypeException e) {
+			} catch (UnsupportedUnitTypeException ignored) {
 			}
 		}
 	}
@@ -31,6 +61,16 @@ public class ClockStore {
 	}
 
 	public void add(IClock clock) {
+		if(clocks.contains(clock)) return;
+		addToList(clock);
+		try (Session s = HibernateSessionFactory.getSessionFactory().openSession()) {
+			Transaction t = s.beginTransaction();
+			s.persist(clock);
+			t.commit();
+		}
+	}
+
+	private void addToList(IClock clock) {
 		clocks.add(clock);
 		if (brandNames.containsKey(clock.getBrandName())) {
 			brandNames.compute(clock.getBrandName(), (k, v) -> v + 1);
@@ -44,8 +84,25 @@ public class ClockStore {
 		brandNames.compute(clock.getBrandName(), (k, v) -> v - 1);
 		if(brandNames.get(clock.getBrandName()) == 0)
 			brandNames.remove(clock.getBrandName());
+		try (Session s = HibernateSessionFactory.getSessionFactory().openSession()) {
+			Transaction t = s.beginTransaction();
+			s.remove(clock);
+			t.commit();
+		}
 	}
-
+	public void clear()
+	{
+		try (Session s = HibernateSessionFactory.getSessionFactory().openSession()) {
+			Transaction t = s.beginTransaction();
+			for(IClock c : clocks)
+			{
+				s.remove(c);
+			}
+			t.commit();
+		}
+		clocks.clear();
+		brandNames.clear();
+	}
 	public String getMostCommonBrandName() {
 		/*
 		 * Integer maxCount = 0; String maxBrandName = ""; for (String key :

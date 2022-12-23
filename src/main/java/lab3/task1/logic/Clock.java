@@ -1,7 +1,19 @@
 package lab3.task1.logic;
 
+import com.google.gson.annotations.Expose;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="clocks")
 public abstract class Clock implements IClock {
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	protected int ID;
+	@Column(name = "brandName")
+	@Expose
 	protected String brandName;
+	@Column(name = "price")
+	@Expose
 	protected double price;
 
 	public Clock(double price, String name)

@@ -1,7 +1,16 @@
 package lab3.task1.logic;
 
+import com.google.gson.annotations.Expose;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+@Entity
 public class AnalogClock extends Clock {
+	@Expose
+	@Column(name = "minutes")
 	protected int minutes = 0;
+	@Expose
+	@Column(name = "hours")
 	protected int hours = 0; // in 1/12s of a full circle. 0 = midnight
 
 	public AnalogClock(double price, String brandName) {
